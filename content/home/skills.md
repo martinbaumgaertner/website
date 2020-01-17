@@ -27,9 +27,9 @@ subtitle = ""
   description = "30%"  
 
 [[feature]]
-  icon = "monetary economics"
+  icon = "euro-sign"
   icon_pack = "fas"
-  name = "euro-sign"
+  name = "monetary economics"
   description = "40%"
 
 +++
