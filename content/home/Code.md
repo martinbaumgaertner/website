@@ -10,7 +10,7 @@ subtitle = ""
 
 [content]
 
-page_type = "project"
+page_type = "code"
 
 filter_default = 0
 
