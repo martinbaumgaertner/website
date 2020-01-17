@@ -9,7 +9,7 @@ featured: false
 publication: "*The World Economy*"
 tags: ["commodity prices", "exchange rate", "forecast", "panel analysis"]
 url_pdf: "https://onlinelibrary.wiley.com/doi/abs/10.1111/twec.12802"
-url_code:
+url_code: "https://github.com/martinbaumgaertner/ForecastingExchangeRates"
 url_dataset:
 url_poster:
 url_project:
