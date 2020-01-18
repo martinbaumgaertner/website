@@ -39,6 +39,7 @@ date_format = "Jan 2006"
   date_end = "2017-11-30"
   description = """
 
+[[experience]]
   title = "Intern"
   company = "RWI Essen Macroeconomy and Public Finance"
   company_url = ""
@@ -47,7 +48,7 @@ date_format = "Jan 2006"
   date_end = "2017-03-31"
   description = """
 
-
+[[experience]]
   title = "Intern"
   company = "DZ-Bank AG Economic Research"
   company_url = ""
@@ -56,7 +57,7 @@ date_format = "Jan 2006"
   date_end = "2017-01-31"
   description = """
 
-
+[[experience]]
   title = "Student assistant"
   company = "CINCH/ University Duisburg-Essen"
   company_url = ""
