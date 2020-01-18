@@ -37,7 +37,7 @@ date_format = "Jan 2006"
   location = "Gießen"
   date_start = "2017-04-01"
   date_end = "2017-11-30"
-  description = """
+  description = ""
 
 [[experience]]
   title = "Intern"
@@ -46,7 +46,7 @@ date_format = "Jan 2006"
   location = "Essen"
   date_start = "2017-02-01"
   date_end = "2017-03-31"
-  description = """
+  description = ""
 
 [[experience]]
   title = "Intern"
@@ -55,7 +55,7 @@ date_format = "Jan 2006"
   location = "Frankfurt am Main"
   date_start = "2016-12-01"
   date_end = "2017-01-31"
-  description = """
+  description = ""
 
 [[experience]]
   title = "Student assistant"
@@ -64,6 +64,6 @@ date_format = "Jan 2006"
   location = "Gießen"
   date_start = "2014-08-01"
   date_end = "2016-07-31"
-  description = """
+  description = ""
 
 +++
