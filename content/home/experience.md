@@ -25,10 +25,7 @@ date_format = "Jan 2006"
   date_start = "2018-03-01"
   date_end = ""
   description = ""
-  Responsibilities include:
 
-  * Empirical Research
-  * Teaching
 
 [[experience]]
   title = "Student assistant"
