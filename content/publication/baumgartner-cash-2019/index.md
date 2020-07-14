@@ -37,7 +37,7 @@ featured: false
 #   icon: twitter
 
 url_pdf: "https://www.uni-marburg.de/fb02/makro/forschung/magkspapers/paper_2019/23-2019_baumgaertner.pdf"
-url_code:
+url_code: "https://github.com/martinbaumgaertner/Cashisking"
 url_dataset:
 url_poster:
 url_project:
