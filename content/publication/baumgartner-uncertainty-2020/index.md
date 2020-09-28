@@ -3,11 +3,11 @@
 
 title: "Information or Uncertainty Shocks?"
 authors: ["Martin Baumgärtner"]
-date: 2020-09-28T18:22:38+01:00
+date: "2020-09-28T00:00:00Z"
 doi: ""
 
 # Schedule page publish date (NOT publication's date).
-publishDate:
+publishDate: "2020-09-28T00:00:00Z"
 
 # Publication type.
 # Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
@@ -19,7 +19,7 @@ publication_types: ["3"]
 publication: ""
 publication_short: ""
 
-abstract: "This paper shows that uncertainty has an impact on the effectiveness of monetary policy shocks. As uncertainty increases, so does the risk that a restrictive forward guidance shock will increase rather than decrease stock prices. This effect can be seen not only in high-frequency variables, but also in VAR models with external instruments. The results suggest that uncertainty is an alternative approach to explain the phenomena previously known as information shock and should therefore receive more attention in monetary policy measures."
+abstract: This paper shows that uncertainty has an impact on the effectiveness of monetary policy shocks. As uncertainty increases, so does the risk that a restrictive forward guidance shock will increase rather than decrease stock prices. This effect can be seen not only in high-frequency variables, but also in VAR models with external instruments. The results suggest that uncertainty is an alternative approach to explain the phenomena previously known as information shock and should therefore receive more attention in monetary policy measures.
 
 # Summary. An optional shortened abstract.
 summary: ""
