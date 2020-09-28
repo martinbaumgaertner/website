@@ -19,12 +19,12 @@ publication_types: ["3"]
 publication: ""
 publication_short: ""
 
-abstract: "This paper shows that uncertainty has an impact on the effectiveness of monetary policy shocks. As uncertainty increases, so does the risk that a restrictive forward guidance shock will increase rather than decrease stock prices. This effect can be seen not only in high-frequency variables, but also in VAR models with external instruments. The results suggest that uncertainty is an alternative approach to explain the phenomena previously known as "information shock" and should therefore receive more attention in monetary policy measures."
+abstract: "This paper shows that uncertainty has an impact on the effectiveness of monetary policy shocks. As uncertainty increases, so does the risk that a restrictive forward guidance shock will increase rather than decrease stock prices. This effect can be seen not only in high-frequency variables, but also in VAR models with external instruments. The results suggest that uncertainty is an alternative approach to explain the phenomena previously known as information shock and should therefore receive more attention in monetary policy measures."
 
 # Summary. An optional shortened abstract.
 summary: ""
 
-tags: ["Uncertainty", "High-Frequency Identification", "Structural VAR", "ECB"]
+tags: ["Uncertainty","High-Frequency Identification","Structural VAR","ECB"]
 categories: []
 featured: false
 
@@ -37,7 +37,7 @@ featured: false
 #   icon: twitter
 
 url_pdf: "https://www.uni-marburg.de/en/fb02/research-groups/economics/macroeconomics/research/magks-joint-discussion-papers-in-economics/papers/2020-papers/41-2020_baumgaertner.pdf"
-url_code:
+url_code:""
 url_dataset:
 url_poster:
 url_project:
