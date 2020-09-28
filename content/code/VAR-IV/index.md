@@ -16,7 +16,7 @@ publication_short: ""
 
 
 # Summary. An optional shortened abstract.
-summary: ""
+summary: "R Code for a VAR with external instruments including robust CI"
 
 tags: ["R","VAR"]
 categories: []
