@@ -31,7 +31,7 @@ date_format = "Jan 2006"
   company = "CINCH/ University Duisburg-Essen"
   company_url = "https://www.expwifo.wiwi.uni-due.de/"
   location = "Essen"
-  date_start = "2017-04-01"
+  date_start = "2014-08-01"
   date_end = "2017-11-30"
   description = "Ztree, Experimental Methods"
 
