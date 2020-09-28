@@ -37,7 +37,7 @@ featured: false
 #   icon: twitter
 
 url_pdf: "https://www.uni-marburg.de/en/fb02/research-groups/economics/macroeconomics/research/magks-joint-discussion-papers-in-economics/papers/2020-papers/41-2020_baumgaertner.pdf"
-url_code:""
+url_code:
 url_dataset:
 url_poster:
 url_project:
