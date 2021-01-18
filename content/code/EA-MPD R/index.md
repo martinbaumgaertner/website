@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Monetary policy shocks from EA-MPD data with R"
+title: "Monetary policy shocks from EA-MPD data"
 authors: ["Martin Baumgärtner"]
 date: 2021-01-19T21:22:38+01:00
 doi: ""
