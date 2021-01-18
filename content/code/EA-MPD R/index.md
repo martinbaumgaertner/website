@@ -16,8 +16,7 @@ publication_short: ""
 
 
 # Summary. An optional shortened abstract.
-summary: "R package to calculate monetary policy shocks with the Euro Area Monetary Policy Event-Study Database (EA-MPD) of Altavilla, C., Brugnolini, L., Gürkaynak, R. S., Motto, R., & Ragusa, G. (2019). Measuring euro area monetary policy. Journal of Monetary Economics, 108, 162-179."
-
+summary: "R package to calculate monetary policy shocks with the Euro Area Monetary Policy Event-Study Database (EA-MPD)."
 tags: ["R","VAR", "Monetary Economics"]
 categories: []
 featured: false
