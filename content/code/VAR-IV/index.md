@@ -31,7 +31,7 @@ featured: false
 #   icon: twitter
 
 url_pdf: 
-url_code: "https://github.com/jm4474/SVARIV"
+url_code: "https://github.com/martinbaumgaertner/varexternal"
 url_dataset:
 url_poster:
 url_project:
@@ -70,7 +70,9 @@ The corresponding Matlab code and sample data can be found here: <https://github
 
 # Installation:
 
-> install.packages(“devtools”) devtools::install_github(“<https://github.com/martinbaumgaertner/varexternal.git">) library(varexternal)
+> install.packages(“devtools”) 
+> devtools::install_github(“<https://github.com/martinbaumgaertner/varexternal.git">) 
+> library(varexternal)
 
 # Content
 
