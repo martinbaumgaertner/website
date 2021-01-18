@@ -70,8 +70,8 @@ The corresponding Matlab code and sample data can be found here: <https://github
 
 # Installation:
 
-> install.packages(“devtools”) 
-> devtools::install_github(“<https://github.com/martinbaumgaertner/varexternal.git">) 
+> install.packages("devtools”) 
+> devtools::install_github("https://github.com/martinbaumgaertner/varexternal.git") 
 > library(varexternal)
 
 # Content

@@ -16,7 +16,7 @@ publication_short: ""
 
 
 # Summary. An optional shortened abstract.
-summary: "R package to calculate monetary policy shocks with the Euro Area Monetary Policy Event-Study Database (EA-MPD)."
+summary: "R package to calculate monetary policy shocks with the high frequency data from the Euro Area Monetary Policy Event-Study Database (EA-MPD)."
 tags: ["R","VAR", "Monetary Economics"]
 categories: []
 featured: false
@@ -61,9 +61,9 @@ projects: []
 slides: ""
 ---
 
-This Package estimates a Vector Autoregressive Model with an External Instrument in R. It is based on
+This Package estimates the monetary policy surprises from high-frequency data in R. It is based on
 
-**“Altavilla, C., Brugnolini, L., Gürkaynak, R. S., Motto, R., & Ragusa, G. (2019). Measuring euro area monetary policy. Journal of Monetary Economics, 108, 162-179.** [Link](https://www.sciencedirect.com/science/article/pii/S0304393219301497)
+**Altavilla, C., Brugnolini, L., Gürkaynak, R. S., Motto, R., & Ragusa, G. (2019). Measuring euro area monetary policy. Journal of Monetary Economics, 108, 162-179.** [Link](https://www.sciencedirect.com/science/article/pii/S0304393219301497)
 
 The corresponding Julia/R/Stata code and sample data can be found here: <http://www.bilkent.edu.tr/~refet/ABGMR_replication_files.zip> (by Refet S. Gürkaynak)
 
@@ -71,7 +71,7 @@ The corresponding Julia/R/Stata code and sample data can be found here: <http://
 
 > library(“devtools”) 
 >
-> devtools::install_github(“https://github.com/martinbaumgaertner/hfdshocks.git") 
+> devtools::install_github("https://github.com/martinbaumgaertner/hfdshocks.git") 
 >
 > library(hfdshocks)
 
@@ -104,7 +104,7 @@ There are various setting options:
 ```r
 #load package
 library(devtools)
-devtools::install_github(“https://github.com/martinbaumgaertner/hfdshocks.git") 
+devtools::install_github("https://github.com/martinbaumgaertner/hfdshocks.git") 
 
 library(hfdshocks)
 ecb_shocks("https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx","",
