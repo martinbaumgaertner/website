@@ -94,40 +94,24 @@ In addition the authors propose an modified Wald test as a test for  weak instru
 
 ```r
 #load package
-library(pacman)
-p_load(varexternal,tidyr,ggplot2,reshape2,devtools,
-       install = TRUE, update = F)
-devtools::install_github("https://github.com/martinbaumgaertner/varexternal.git")
+library(devtools)
+install_github("martinbaumgaertner/varexternal")
 library(varexternal)
 
-#set variables
-p           = 24     #Number of lags in the VAR model
-confidence  = .95    #Confidence Level for the standard and weak-IV robust confidence set
-NWlags      = 0;  # Newey-West lags(set it to 0 to compute heteroskedasticity robust std errors)
-norm        = 1; # Variable used for normalization
-scale       = 1; # Scale of the shock
-horizons    = 20; #Number of horizons for the Impulse Response Functions(IRFs)
-#(does not include the impact or horizon 0)
+    data(oil)
 
-#load data
-data(oil)
-ydata<-oil[,1:3]
-z<-oil[,4]
+    ydata<-oil[,1:3]
+    z<-oil[,4]
+    p           = 24    #Number of lags in the VAR model
+    NWlags      = 0;  # Newey-West lags(if it is neccessary to account for time series autocorrelation)
+    norm        = 1; # Variable used for normalization
+    scale       = 1; # Scale of the shock
+    horizons    = 20; #Number of horizons for the Impulse Response Functions(IRFs)
+    confidence=c(0.6,0.9,0.95);
 
-#compute IRFS
-VAR<-SVARIV(ydata,z,p,confidence,NWlags,norm,scale,horizons)
+    VAR<-SVARIV(ydata,z,p,confidence,NWlags,norm,scale,horizons,instrument_name="test")
 
-#plot data
-dat<-melt(tibble(lag=seq(1:(horizons+1)),irf=VAR$Plugin$IRF[1,],lb=VAR$InferenceMSW$MSWlbound[1,],ub=VAR$InferenceMSW$MSWubound[1,]),id="lag")
-
-ggplot()+
-  geom_line(data=subset(dat,variable=="irf"),aes(lag,value))+
-  geom_line(data=subset(dat,variable=="ub"),aes(lag,value),colour="red")+
-  geom_line(data=subset(dat,variable=="lb"),aes(lag,value),colour="red")+ 
-  #geom_line(data=subset(d1,variable=="lb_old"),aes(lag,value))+ 
-  #geom_line(data=subset(d1,variable=="ub_old"),aes(lag,value))+ 
-  geom_hline(yintercept=0)+
-  xlab("")+
-  theme_bw()+
-  theme(plot.margin = unit(c(0,5,0,5), "mm"))
+    sh.col<-      c("#E41A1C")
+    names(sh.col)<-c("test")
+    pretty_irf(data=list(VAR$irfs),shock_names="test",pretty_names=c("a","b","c"),manual_color=sh.col,title="subheading")
 ```
