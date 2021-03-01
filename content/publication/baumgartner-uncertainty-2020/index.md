@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Information or Uncertainty Shocks?"
+title: "Information shocks and Uncertainty"
 authors: ["Martin Baumgärtner"]
 date: "2020-09-28T00:00:00Z"
 doi: ""
@@ -19,7 +19,7 @@ publication_types: ["3"]
 publication: ""
 publication_short: ""
 
-abstract: This paper shows that uncertainty has an impact on the effectiveness of monetary policy shocks. As uncertainty increases, so does the risk that a restrictive forward guidance shock will increase rather than decrease stock prices. This effect can be seen not only in high-frequency variables, but also in VAR models with external instruments. The results suggest that uncertainty is an alternative approach to explain the phenomena previously known as information shock and should therefore receive more attention in monetary policy measures.
+abstract: This paper studies the effect of uncertainty on monetary policy shocks for the euro area. The analysis shows that various forms of forward guidance under high uncertainty produce results similar to those attributed to information shocks in the literature. This effect can be seen in high-frequency variables and VAR models with external instruments. The results suggest that uncertainty is related to information shocks and can potentially explain the timing of these shocks.
 
 # Summary. An optional shortened abstract.
 summary: ""
@@ -36,7 +36,7 @@ featured: false
 #   icon_pack: fab
 #   icon: twitter
 
-url_pdf: "https://www.uni-marburg.de/en/fb02/research-groups/economics/macroeconomics/research/magks-joint-discussion-papers-in-economics/papers/2020-papers/41-2020_baumgaertner.pdf"
+url_pdf: "https://www.researchgate.net/profile/Martin-Baumgaertner/publication/344400992_Information_shocks_and_Uncertainty/links/603cb23e299bf1cc26fc2adf/Information-shocks-and-Uncertainty.pdf"
 url_code:
 url_dataset:
 url_poster:
