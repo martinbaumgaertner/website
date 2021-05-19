@@ -19,7 +19,7 @@ publication_types: ["2"]
 publication: ""
 publication_short: ""
 
-abstract: "We distinguish the announcement effects of con-ventional  and  unconventional  monetary  policy measures on macroeconomic variables using a high‐frequency data set that measures the impact of the European Central Bank's monetary policy decisions. For the period 2002 to 2019, we show that conventional and unconventional monetary policy measures  differ  considerably  in  their  impact  on inflation. While conventional measures show the expected response, that is, an interest rate cut increases inflation, unconventional measures appear to generally have no significant influence. However, this does not hold for quantitative easing, which is found to have a similar influence on inflation as the conventional interest rate changes."
+abstract: "We distinguish the announcement effects of conventional  and  unconventional  monetary  policy measures on macroeconomic variables using a high‐frequency data set that measures the impact of the European Central Bank's monetary policy decisions. For the period 2002 to 2019, we show that conventional and unconventional monetary policy measures  differ  considerably  in  their  impact  on inflation. While conventional measures show the expected response, that is, an interest rate cut increases inflation, unconventional measures appear to generally have no significant influence. However, this does not hold for quantitative easing, which is found to have a similar influence on inflation as the conventional interest rate changes."
 
 # Summary. An optional shortened abstract.
 summary: ""
