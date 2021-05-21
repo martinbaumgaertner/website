@@ -1,7 +1,7 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Why central banks announcing liquidityinjections is more effective than forward guidance"
+title: "Why central banks announcing liquidity injections is more effective than forward guidance"
 authors: ["Martin Baumgärtner", "Jens Klose"]
 date: 2021-03-17T21:22:38+01:00
 doi: "10.1111/infi.12389"
