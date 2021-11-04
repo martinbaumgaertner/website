@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Whatever it takes to understand a central banker</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Martin Baumgärtner and Johannes Zahner" />
+    <meta name="date" content="2021-11-04" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Whatever it takes to understand a central banker
+## Embedding their words using neural networks.
+### Martin Baumgärtner and Johannes Zahner
+### THM Business School
+### 2021-11-04
+
+---
+
+
+&lt;style type="text/css"&gt;
+.regression table {
+  font-size: 12px;
+}
+&lt;/style&gt;
+
+
+---
+# Text as data
+
+1. Dictionary approaches  
+&lt;blockquote&gt;Loughran, McDonalds (2011), Baker, Bloom and Davis (2016), Shapiro and Wilson (2019)&lt;/blockquote&gt;
+
+&gt;"**.red[Unfortunately]**, many euro area countries entered the financial **.red[crisis]** and the economic **.red[downturn]** with **.red[unnecessarily]** weak fiscal balances, having **.red[missed]** the **.green[opportunity]** presented by past years' revenue windfalls to consolidate their budgets." &lt;footer&gt;Jose Gonzalez-Paramo (2009)&lt;/footer&gt;
+
+`$$S_{t,i} =  \ \frac{\# positive_j - \# negative_j}{\# positive_j + \# negative_j}$$`
+---
+
+# Text as data
+ 
+1. Dictionary approaches  
+1. LDA model
+&lt;blockquote&gt;Fligstein, Brundage, and Schultz (2014), Hansen and McMahon (2016), Lüdering and Tillmann (2020):&lt;/blockquote&gt;
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://am4pap001files.storage.live.com/y4mUzw9t61CkhhAdYKp9xH_MyT9SDu26xohDKbxbHFW0iw2F-c9TwzaCvBfrFpyzrGGXyxqK6vo6-SmXqBVbm41rDw8Q9fotml-ik1RF4eBGx8q5qr9onNDSKqVCPh2CcSVHktvNXGmtDDsZnJ2oVzV7D-87fOo4OR-fSHEBuSgRHYz8m75H176latJUHtkiPLH?width=1152&amp;height=874&amp;cropmode=none" alt="Hansen and McMahon (2016)" width="30%" /&gt;
+&lt;p class="caption"&gt;Hansen and McMahon (2016)&lt;/p&gt;
+&lt;/div&gt;
+---
+
+# Text as data
+ 
+1. Dictionary approaches  
+1. LDA model
+1. Observing market reactions
+&lt;blockquote&gt;Gürkaynak, Sack and Swanson (2005), Jarociński, Karadi (2020)&lt;/blockquote&gt;
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://am4pap001files.storage.live.com/y4mcdeIeIf5aQhoyaSXSaatuGl5xZg5l8blrX1-uDMy3M2LRbArjwq-fdk_XKfUenjw5umujy4C58ccLmSpZdDgWavjzpqDuXyHTbH8ETeF9dQ9iPcz5BfoGeZjG_01hjROfQQ8OY1I5oiZB8GLgDebOM8o5kwGPvjSpCyRND9twNYVIwmPFKDyR2xgUNAKUqdl?width=1272&amp;height=396&amp;cropmode=none" alt="Gürkaynak, Sack and Swanson (2005)" width="50%" /&gt;
+&lt;p class="caption"&gt;Gürkaynak, Sack and Swanson (2005)&lt;/p&gt;
+&lt;/div&gt;
+---
+
+# Text as data
+ 
+1. Dictionary approaches  
+1. LDA model
+1. Observing market reactions
+1. **Word embeddings**
+&lt;blockquote&gt;Mikolov, Chen, Corrado, Dean (2013), Pennington, Socher and Manning (2014)&lt;/blockquote&gt;
+1. **Document embeddings**
+&lt;blockquote&gt;Le and Mikolov (2014)&lt;/blockquote&gt;
+
+`\(\Longrightarrow\)` Each word/document is a point in a vector space, with
+similar words colocated.
+
+
+|term       | `\(dim_1\)` | `\(dim_2\)` | `\(dim_3\)` | ...   | `\(dim_{300}\)`|
+|-----------|---------|---------|---------|-------|------------|
+|ability    | -0.02   |  0.03   |  0.01   | ...   |  0.04      |
+|able       | -0.01   |  0.04   |  0.01   | ...   |  0.51      |
+|about      |  0.02   |  0.04   | -0.02   | ...   |  0.12      |
+|...        |         |         |         |       |  ...          |
+
+---
+#Embeddings
+
+- In the last years, embeddings have entered the realm of monetary
+policy:
+
+ - Measure similarity in Twitter tweets (Masciandaro et al., 2020),
+ - Improvement of the Euro Area uncertainty index (Azqueta-Gavaldon et al., 2019)
+ - Measure central banker disagreement (Apel, Grimaldi, and Hull, 2019)
+
+
+All studies use models based on a general corpus (Twitter, Google News, Wikipedia).
+--
+
+This comes with some problems:
+- missing relevant monetary policy specific terms (e.g. hicp)
+- Homonyms (e.g. Basel - City and Regulation Framework)
+- Collocations (e.g. federal_reserve_bank)
+--
+
+&gt; 1. We use a specific monetary/economic text corpus
+&gt; 1. We evaluate different algorithms
+&gt; 1. We train embeddings on a word level and on a document level to summarize entire texts.
+&gt; 1. We apply the language model to a variety of applications.
+
+---
+class:middle
+#Embeddings
+
+&lt;img src="https://am4pap001files.storage.live.com/y4mPOoN3vRfEjdVAh9sP7bOLY8YKD0UItY1bKM4-bGFLS3LFGd5XHXyhY_BZXSWNzdMUnE85kPTlEtEodx6Fq-MX0bDWXLp5U9UXjvDt16KAP-jJpBIOUTXAJxY0ajXY35Mqaxd_y7BUXZuzFW9pGmOjw6JfOzfG6-5Gz_Rho5Y0oAKwMzTYK3UbM6rpt8aqmoC?width=1989&amp;height=560&amp;cropmode=none" style="display: block; margin: auto;" /&gt;
+
+---
+#Embeddings
+
+##Corpus
+| Source    | Type   | n  |
+|-----------|--------|----|
+|BIS       | Speech   | 16,627  |
+|FED       | Minute, Press Conference, Transcript, Agenda, Blue-, Green-, Teal-, Beige- and Red-Book | 2,238 |
+|BOJ       | Minute, Economic Report, Release, Outlook Report  | 2,187  |
+|ECB       | Minute, Press Conference, Economic Outlook, Blog   | 343   |
+|Riksbank  | Minute, Economic Review, Monetary Policy Report  | 330     |
+|Australia | Minute     | 159     |
+|Poland    | Minute   | 156     |
+|Iceland   | Minute    | 101     |
+
+---
+#Embeddings
+
+##Algorithms
+.pull-left[**Count based**  
+    - LDA  
+    - GloVe  
+    ...]
+
+.pull-right[**Prediction based**  
+    - Word2Vec  
+    - Doc2Vec  
+    - fasttext  
+    ...]
+
+**Pre-trained Models**  
+    - GloVe6B
+    - GloVe.Twitter
+    - fastText WIKI
+    - word2vec GoogleNews
+    - ...
+
+---
+#Word2Vec
+
+&gt; "**.red[this]** [......] **.red[outlook]** remains subject to considerable uncertainty"
+
+--
+
+&gt; "this **.red[brighter]** [.....] **.red[remains]** subject to considerable uncertainty"
+
+---
+#Word2Vec
+
+&gt; "**.red[this]** [......] **.red[outlook]** remains subject to considerable uncertainty"
+
+&gt; "this **.red[brighter]** [.....] **.red[remains]** subject to considerable uncertainty"
+
+&gt; "this brighter **.red[outlook]** [.....] **.red[subject]** to considerable uncertainty"
+
+&lt;img src="https://am4pap001files.storage.live.com/y4mmiN99kppCGD5ZrQM7rSw6YnHe3Vnan-bcQb-L4RW2r1lmzt7dpWAZr74vM9_2kUzu2Eykn2fD8BYxheMwVXNy3xFWgjpxAWdi0OUm6Nukg4adBeYgjs0fB-V0Wn-RouqK20hqWkkQWPzPFsX33_OExL1g0etTNWT1xivGGzANGwQJ-LYS95r8Cch9oI4XXxL?width=984&amp;height=378&amp;cropmode=none" width="70%" style="display: block; margin: auto;" /&gt;
+
+---
+# Embeddings
+.pull-left[**(Word-) Embeddings**
+&gt;Each word is a point in a vector space, with
+similar words colocated.
+
+
+|term       | `\(dim_1\)` | `\(dim_2\)` | `\(dim_3\)` | ...   | `\(dim_{300}\)` |
+|-----------|---------|---------|---------|-------|-------|
+|a          |  0.05   |  0.02   |  0.02   | ...   |...   |
+|ability    | -0.02   |  0.03   |  0.01   | ...   |...   |
+|able       | -0.01   |  0.04   |  0.01   | ...   |...   |
+|about      |  0.02   |  0.04   | -0.02   | ...   |...   |
+|above      | -0.02   |  0.02   | -0.01   | ...   |...   |
+|abroad     | -0.02   |  0      |  0.01   | ...   |...   |
+|absence    | -0.01   |  0      |  0.01   | ...   |...   |
+|...        |         |         |         |       |    |]
+
+.pull-right[**(Document-) Embeddings**
+&gt;Each document is a point in a vector space, with
+similar documents colocated.
+
+
+|doc_id     | `\(dim_1\)` | `\(dim_2\)` | `\(dim_3\)` |   ...   | `\(dim_{300}\)` |
+|-----------|---------|---------|---------|---------|-------|
+|doc_1      |  0.05   |  0.02   |  0.02   |   ...   |...   |
+|doc_2      | -0.02   |  0.03   |  0.01   |   ...   |...   |
+|doc_3      | -0.01   |  0.04   |  0.01   |   ...   |...   |
+|doc_4      |  0.02   |  0.04   | -0.02   |   ...   |...   |
+|doc_5      | -0.02   |  0.02   | -0.01   |   ...   |...   |
+|doc_6      | -0.02   |  0      |  0.01   |   ...   |...   |
+|doc_8      | -0.01   | -0.01   |  0.01   |   ...   |...   |
+|...        |         |         |         |         |   |]
+
+---
+class: middle
+<iframe src="https://alpen.shinyapps.io/shiny_simil/" width="100%" height="100%" scrolling="no" seamless="seamless" frameBorder="0"></iframe>
+---
+# Word Embeddings
+
+
+| inflation             | basel           | unemployment    |
+|-----------------------|-----------------|-----------------|
+|core_inflation         | basel_committee |unemployment_rate|
+|inflation_expectations | basle           |natural_rate     |
+|economic_slack         | capital_accord  |joblessness      |
+|underlying_inflation   | basel_accord    |jobless          |
+|inflation_outlook      | bcbs            |labor_force      |
+|price_inflation        | basle_committee |unemploy-        |
+|...                    | ...             |                 |
+
+---
+class:middle
+
+#Applications
+
+There is a myriad of potential applications. In the paper we explore the
+following:
+1. Comparing central banks according their objectives
+2. Indicator of the ECB’s commitment to act as a lender of last resort
+3. Evaluate gender bias in the technical language of central bankers
+4. Prediction of monetary policy surprises (Altavilla et al. (2019)) by **previous** speeches
+---
+class:center
+
+##Application 1: Central bank objectives
+
+We investigate factors that influence central bank similarity, using the central bank document similarity (towards the ECB) index as a dependent variable:
+
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="slides_boe_clean_files/figure-html/map-1.png" alt="Similarity to the ECB" width="70%" /&gt;
+&lt;p class="caption"&gt;Similarity to the ECB&lt;/p&gt;
+&lt;/div&gt;
+---
+class: center
+##Application 1: Central bank objectives
+
+&lt;img src="https://am4pap001files.storage.live.com/y4mAIAwQ4b2npvY-rZZYWCeszbmYqxyBj1VK782CL-iJb56sajWaoh6g1c-FG1UBtGuVefiJrvNkZrKjxKBTotbQ_jYK-gd2EuDKnfGUucLHdNkAzedQqNX5Kppz40u82Uh8Mczp34yxqnRbEloM4VtDZT2i9Q_ynV2yKLHE5DwK8Mi51_qroN8L38aJ0EcCLL0?width=1001&amp;height=881&amp;cropmode=none" width="50%" /&gt;
+---
+
+##Application 2: Whatever it takes
+
+Focus on the effect of central bank communication in times of heightened uncertainty.
+
+We use the famous speech by Mario Draghi in London on 26 July 2012, containing the iconic quote: 
+
+&gt;*"Within our mandate, the ECB is ready to do whatever it takes"*
+
+- The speech is widely interpreted as the ECB signaling its willingness to act as a lender of last resort if necessary.
+
+- We calculate the cosine distance between the ECB's remaining speeches to this event, thereby creating a time-series of an lender of last resort index.
+
+`$$\text{Cosine similarity:  } \frac{a \cdot b}{ \lVert a \lVert \lVert b \lVert }$$`
+---
+##Application 2: Whatever it takes
+&lt;img src="slides_boe_clean_files/figure-html/wit-plot-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+##Application 2: Whatever it takes
+
+To investigate whether the similarity to that speech can calm financial markets in times of heightened uncertainty, we run the following regression:
+
+
+`$$\Delta spread_{10y,t}  = wit_{simil, t} + Unc_t + wit_{simil, t} \times Unc_t + X_t + \epsilon_t$$`
+
+--
+
+`\(\Delta spread_{10y,t}\)` = daily change in greek-german ten-year bond spreads
+
+`\(wit_{simil, t}\)` = Whatever it takes similarity index
+
+--
+
+`\(Unc_{pd,t}\)` = three different specifications of uncertainty before the speech
+- VSTOXX
+- ECB's daily CISS index (Hollo et. al, 2021)
+- Decomposition of the VSTOXX into uncertainty (*UC*) and risk aversion (*RA*) (Bekaert et. al (2021))
+
+--
+
+`\(X_t\)` = a set of control variables:
+- Dummy for the `\(wit\)` speech
+- Moodys agency ratings for Greek bonds
+- European and U.S. stock prices
+- monetary policy surprises (Altavilla et. al, 2019)
+- a dummy for the ECB's different central bank presidents
+
+---
+class: regression
+
+##Application 2: Whatever it takes
+
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://am4pap001files.storage.live.com/y4miVHwuIu2VZrAB8uK-a5cnzLHcO7CefukTpdPICbdLsEM0oorRduLJ2xdjymGcgVSbZuvlt7w3ghMvP8eem3-vAGPhMPIXtpLi8MRGKHgEK7FIgzQKrhGJsqKG2aoJulgL4i7Htb37aYB6JbXpLFavHCbXCBjPJJXwJELzdrSmHGXnnLGEnubtfowk2_ocjaB?width=725&amp;height=520&amp;cropmode=none" alt="WIT regression results" width="60%" /&gt;
+&lt;p class="caption"&gt;WIT regression results&lt;/p&gt;
+&lt;/div&gt;
+
+---
+#Summary
+
+- Quantifying central bank communication has developed to be a substantial entity in monetary policy, with dictionary approaches at the forefront of current techniques.
+
+- We expand the literature on four fronts:
+
+  1. A text-corpus that is unparalleled in size and diversity.
+  
+  2. Introduction of embeddings, a novel approach from computational linguistics to quantifying texts
+  
+  3. Provision of **high quality text-representations** for central bank communication → open source &lt;sup&gt;1&lt;/sup&gt;
+
+  4. We show how high dimensional embeddings can be integrated into (low dimensional) social science research.
+  
+- We highlighted the broad applicability illustrating four examples in the fields of measuring objectives, financial uncertainty, gender bias, and policy surprise prediction.
+
+&lt;span class="footnote"&gt;&lt;sup&gt;1&lt;/sup&gt;[sites.google.com/view/whatever-it-takes-bz2021](sites.google.com/view/whatever-it-takes-bz2021)&lt;/span&gt;
+
+---
+#Extended Methodology
+1. Scrape Corpus
+    - 23348 documents
+    - Additional features: title, speaker, speaker position, date, cb, country, event, language, type
+2. Clean Corpus
+    - Exclude: HTML, Unicode, Emails, URL`s, decimals
+    - find and join Collocations (e.g. quantitative_easing)
+2. Apply Algorithms
+    - Word embeddings with central bank corpus: LDA, Word2vec, GloVe
+    - Document embeddings with central bank corpus: LDA, Doc2vec
+    - Word embeddings with general corpus: Word2Vec (Google News), GloVe (Wikipedia)
+3. Evaluate on Document stage
+    - Aggregate word embeddings by mean
+    - Predict basic corpus features (interest rate,cb, year)
+4. (Monetary) Application
+    - Central Bank objectives in Embeddings
+    - Indicator of the ECB's commitment to act as a lender of last resort
+    - Prediction of Altavilla et al. (2019) surprises by previous speeches
+    - Gender bias in central banking texts
+
+---
+#Evaluation
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://am4pap001files.storage.live.com/y4mamMzlnadketFTp0o6z__Oe6pTYgqxneTclK6YLGvzeC-1uHvHxAZwJyvUbx5UrUGBZVKD9-dLlWP-JKw_M1AIYkIaqprDLjKRIp3rQC29UC75Qq7AYCuMtzAc65F_L1jP6TpxoMrLJjeJPGZwsUydFrHIcdruCip4Kw0A-1ZB175DlrtQzpaY9jylAhbisvg?width=628&amp;height=766&amp;cropmode=none" alt="Evaluation results" width="40%" /&gt;
+&lt;p class="caption"&gt;Evaluation results&lt;/p&gt;
+&lt;/div&gt;
+---
+#Evaluation (Appendix)
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="https://am4pap001files.storage.live.com/y4mdEUTYT2ZPt-Va8AYVHkIjBiBk6E6YJmguzmt82CwkKNhcFlTNDoVwl0P-YMBXk60YV5sAnPermQ-CXBF_YBbQrk5IEeb1dY1U1OFlDOYQlqmIrWeM7aQdkO0K0NAO8xzKOgMg85PLY7qQOr2f_e-Z1kPhFTm3E4x1KohKnnHtJqjR7Rh3kNKGxekfNHW5ygy?width=608&amp;height=664&amp;cropmode=none" alt="Evaluation results" width="40%" /&gt;
+&lt;p class="caption"&gt;Evaluation results&lt;/p&gt;
+&lt;/div&gt;
+---
+
+
+&gt; "this brighter **.red[outlook]** [.....] **.red[subject]** to considerable uncertainty"
+
+maximize: `$$1/T \sum_{t=1}^{T}\log p(w_t|w_{t-n},...,w_{t-1},w_{t+1},...,w_{t+n})$$`
+with:
+`$$p(w_t|w_{t-n},...,w_{t+n})= \frac{exp(h^Tv'_{w_t})}{\sum_{w_i\in V}exp(h^Tv'_{w_i})}$$`  
+
+---
+#Doc2Vec
+
+&gt; "**.red[this]** [......] **.red[outlook]** remains subject to considerable uncertainty"
+
+&gt; "this **.red[brighter]** [.....] **.red[remains]** subject to considerable uncertainty"
+
+&gt; "this brighter **.red[outlook]** [.....] **.red[subject]** to considerable uncertainty"
+
+&lt;img src="https://am4pap001files.storage.live.com/y4mEbLHS2NV2sJ_fTtY_XUYsHsuJD36KPs6k5MiYnCNobD4jnT81UKtrWWuIDUvy-B9nUJ6VXfl6lEMOCaNK5ShIjcNqIHIcT1OJGHRT1DAGD2JCZEkb0_Xso2TfQGgY8vzUMUEZh7dX0YihGfFU-YtFASUyHWBm0S754R02T3twItHsnYsFSyRpSjwzPrv5sGc?width=984&amp;height=378&amp;cropmode=none" width="70%" style="display: block; margin: auto;" /&gt;
+---
+class: middle
+<iframe src="https://alpen.shinyapps.io/shiny_umap/" width="100%" height="100%" scrolling="no" seamless="seamless" frameBorder="0"></iframe>
+---
+##Application 3: Gender bias
+
+If human discriminations and biases are prevalent in the corpus, they persist in the vector data of the embeddings matrix.
+
+- Female pronouns: she, daughter, hers, her, mother, woman, girl, herself, female, sister, daughters, mothers, women, girls, females, sisters, aunt, aunts. 
+
+- Male pronouns (vb): he, son, his, him, father, man, boy, himself, male, brother, sons, fathers,
+men, boys, males, brothers, uncle, uncles, nephew.
+
+--
+
+Top academic profession for each gender:
+
+
+|Female pronouns| Male pronouns|
+|---------------|--------------|
+|childcare      | fashion      |
+|wildlife       | physics      |
+|nursing        | architecture |
+|pre-school     | mechanics    |
+|welfare        | computer     |
+|education      | automation   |
+|...            | ...          |
+
+---
+##Application 3: Gender bias
+
+*Relative norm distance*:
+How far is a set of neutral words `\((w)\)` from clusters of **.green[feminine]** `\(v_{a, n}\)` and **.green[masculine]** `\(v_{b,n}\)`  signal words?
+
+`$$RND_{a,b} = \sqrt{\sum_{i = 1}^n(w - v_{a, n})^2} - \sqrt{\sum_{i = 1}^n(w - v_{b,n})^2}$$` 
+
+When two groups are compared, the latent bias of either group can be estimated by their distance towards the neutral term.
+
+---
+
+&lt;img src="https://am4pap001files.storage.live.com/y4mrhJolszA8G88f0nzBzMXveK5A4P-qA3-fY8i94ETLle_AVWOvQxUih18UzEhHWdx0bMV28rWahisoAZxY_ASs5VJHGhoXc77o6B14ts1CoGddyXlkRA7i1NnmvxBxEBToLrIXseF_B4HDGVXwKOvGP6fDfvJFjQFWyH91wHcEcpdusgWAoj0BUQe4JcCWDHW?width=666&amp;height=499&amp;cropmode=none" width="50%" style="display: block; margin: auto;" /&gt;
+
+- Indication that female participation is much higher in fields closer associated with female pronouns (in our embeddings).
+- These findings **do not** imply that any specific central banker or institution is communicating a gender bias on purpose.
+- We believe that general social patterns are likely to be reflected in central bank texts as well.
+
+---
+##Application 4: Predicting monetary policy surprises
+
+To investigate whether there is predictive power in the embeddings,we turn to the monetary policy surprises by Altavilla et al. (2019).
+
+The authors use the change in OIS rates around ECB decisions to estimate following surprises using a rotated factor model:
+
+  - Target
+  - Timing
+  - Forward guidance
+  - QE
+  
+Policy surprises are expected to be unpredictable (otherwise,  markets would price in the change).
+
+Interesting evaluation with respect to the wealth of information provided by the embeddings.
+
+---
+##Application 4: Predicting monetary policy surprises
+
+Classify each press-conference as hawkish if its surprise is positive and dovish if it is negative.
+
+Measure the relative euclidean distance for each speech to all hawkish and dovish press-conferences
+
+Classify speeches as hawkish if they are relatively closer to the hawkish press-conferences and dovish otherwise.
+
+&lt;img src="https://am4pap001files.storage.live.com/y4mWydngBKYhcLofjThu4ijrtKMYvMUkCY7HIqiBWaQ018jUJbKFgYX646z-XnvOzNjkhOxEyI0j9qM__t5LSXxgXiWIBgi16VJMYaX4sY8YAYJdOacvX0gJpWOfWN5uk4rVeeVKonG03OtaT6ys3FM8SF9wI5292V-USTDi7T279c3kkvU4TDR_jH_uZIWMaqG?width=890&amp;height=745&amp;cropmode=none" width="50%" style="display: block; margin: auto;" /&gt;
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
