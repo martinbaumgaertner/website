@@ -1,7 +1,120 @@
-# Academic Website Builder
-# https://sourcethemes.com/academic/
-#
-# The presence of this file is for compatibility with Blogdown and Forestry.
-# If you are not using those tools, this file may be deleted.
-#
-# The actual configuration files are stored in the `config/_default/` folder.
+baseURL = "/"
+title = "Martin Baumgärtner"
+languageCode = "en-us"
+theme = "hello-friend-ng"
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+canonifyURLs = true
+enableRobotsTXT = true
+enableEmoji = true
+
+[pagination]
+pagerSize = 10
+path = 'page'
+
+[services.rss]
+limit = 10
+
+[permalinks]
+posts = "/posts/:year/:month/:title/"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"
+
+[params]
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04"
+
+description = "Data Scientist, Ph.D. in Economics. Currently @ Rewe. This is my personal website where I share my research, code, and thoughts on economics, monetary policy, time series analysis, and data science."
+keywords = "Economics, Monetary policy, Time series, Data science, Research"
+
+homeSubtitle = "Data Scientist, Ph.D. in Economics. Currently @ Rewe."
+
+disableReadOtherPosts = false
+enableThemeToggle = false
+enableSharingButtons = true
+enableReadingTime = true
+enableGlobalLanguageMenu = false
+
+[params.author]
+name = "Martin Baumgärtner"
+
+[params.footer]
+trademark = 2026
+rss = true
+copyright = true
+author = true
+topText = []
+bottomText = [
+    "Powered by <a href=\"https://gohugo.io\">Hugo</a>",
+    "Theme: <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">Hello Friend NG</a>",
+]
+
+[params.favicon.color]
+mask = "#1b1c1d"
+msapplication = "#1b1c1d"
+theme = "#1b1c1d"
+
+[params.logo]
+logoMark = ">"
+logoText = "Martin Baumgärtner"
+logoHomeLink = "/"
+
+# Social links
+[[params.social]]
+name = "email"
+url = "mailto:martin.baumgaertner1@gmail.com"
+
+[[params.social]]
+name = "google-scholar"
+url = "https://scholar.google.com/citations?user=MI2L_pIAAAAJ&hl=de/"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/martinbaumgaertner"
+
+[languages.en]
+weight = 1
+
+[menu]
+[[menu.main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 10
+
+[[menu.main]]
+identifier = "posts"
+name = "Blog"
+url = "/posts/"
+weight = 20
+
+[[menu.main]]
+identifier = "publications"
+name = "Publications"
+url = "/publication/"
+weight = 30
+
+[[menu.main]]
+identifier = "code"
+name = "Code"
+url = "/code/"
+weight = 40
+
+[[menu.main]]
+identifier = "talk"
+name = "Talks"
+url = "/talk/"
+weight = 50
+
+[[menu.main]]
+identifier = "contact"
+name = "Contact"
+url = "/#contact"
+weight = 60

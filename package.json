@@ -1,0 +1,23 @@
+{
+  "name": "my_website",
+  "version": "1.0.0",
+  "description": "Martin Baumgärtner's academic website built with Hugo",
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo --gc --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinbaumgaertner/My_Website.git"
+  },
+  "keywords": [
+    "hugo",
+    "academic-website"
+  ],
+  "author": "Martin Baumgärtner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/martinbaumgaertner/My_Website/issues"
+  },
+  "homepage": "https://github.com/martinbaumgaertner/My_Website#readme"
+}

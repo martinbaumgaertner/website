@@ -4,3 +4,8 @@
 # Hugo
 resources/
 public/
+.hugo_build.lock
+
+# Node.js
+node_modules/
+package-lock.json

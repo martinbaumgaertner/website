@@ -1,15 +1,7 @@
 ---
 title: Code
-
-# View.
-#   1 = List
-#   2 = Compact
-#   3 = Card
-#   4 = Citation
-view: 2
-
-# Optional header image (relative to `static/img/` folder).
-header:
-  caption: ""
-  image: ""
+date: 2026-02-13
+draft: false
 ---
+
+Open source code repositories and research software packages.
