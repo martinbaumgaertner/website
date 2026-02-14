@@ -55,7 +55,7 @@ image = "/img/og-image.png"
 
 [params.footer]
 trademark = 2026
-rss = true
+rss = false
 copyright = true
 author = true
 topText = []
