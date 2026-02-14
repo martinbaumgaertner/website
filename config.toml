@@ -9,6 +9,8 @@ PygmentsStyle = "monokai"
 canonifyURLs = true
 enableRobotsTXT = true
 enableEmoji = true
+relativeURLs = true
+unsafeHTML = false
 
 [pagination]
 pagerSize = 10
@@ -31,8 +33,9 @@ dateformShort = "Jan 2"
 dateformNum = "2006-01-02"
 dateformNumTime = "2006-01-02 15:04"
 
-description = "Data Scientist, Ph.D. in Economics. Currently @ Rewe. This is my personal website where I share my research, code, and thoughts on economics, monetary policy, time series analysis, and data science."
-keywords = "Economics, Monetary policy, Time series, Data science, Research"
+description = "Data Scientist, Ph.D. in Economics. Currently @ Rewe. Specializing in econometrics, monetary policy, and time series analysis. Research in VAR models and natural language processing."
+keywords = "Economics, Monetary policy, Time series, Econometrics, VAR models, Data science, Research, NLP, Neural networks"
+defaultTheme = "dark"
 
 homeSubtitle = "Data Scientist, Ph.D. in Economics. Currently @ Rewe."
 
@@ -44,6 +47,11 @@ enableGlobalLanguageMenu = false
 
 [params.author]
 name = "Martin Baumgärtner"
+email = "martin.baumgaertner1@gmail.com"
+
+[params.og]
+type = "website"
+image = "/img/og-image.png"
 
 [params.footer]
 trademark = 2026
@@ -51,10 +59,7 @@ rss = true
 copyright = true
 author = true
 topText = []
-bottomText = [
-    "Powered by <a href=\"https://gohugo.io\">Hugo</a>",
-    "Theme: <a href=\"https://github.com/rhazdon/hugo-theme-hello-friend-ng\">Hello Friend NG</a>",
-]
+bottomText = []
 
 [params.favicon.color]
 mask = "#1b1c1d"
@@ -72,22 +77,15 @@ name = "email"
 url = "mailto:martin.baumgaertner1@gmail.com"
 
 [[params.social]]
-name = "google-scholar"
-url = "https://scholar.google.com/citations?user=MI2L_pIAAAAJ&hl=de/"
-
-[[params.social]]
 name = "github"
 url = "https://github.com/martinbaumgaertner"
 
+[[params.social]]
+name = "googlescholar"
+url = "https://scholar.google.com/citations?user=MI2L_pIAAAAJ&hl=de/"
+
 [languages.en]
 weight = 1
-
-[menu]
-[[menu.main]]
-identifier = "home"
-name = "Home"
-url = "/"
-weight = 10
 
 [[menu.main]]
 identifier = "posts"
@@ -106,15 +104,3 @@ identifier = "code"
 name = "Code"
 url = "/code/"
 weight = 40
-
-[[menu.main]]
-identifier = "talk"
-name = "Talks"
-url = "/talk/"
-weight = 50
-
-[[menu.main]]
-identifier = "contact"
-name = "Contact"
-url = "/#contact"
-weight = 60

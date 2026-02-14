@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/martinbaumgaertner/My_Website/issues"
   },
-  "homepage": "https://github.com/martinbaumgaertner/My_Website#readme"
+  "homepage": "https://github.com/martinbaumgaertner/My_Website#readme",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.14",
+    "tailwindcss": "^4.0.0"
+  }
 }
